@@ -321,7 +321,7 @@ int main(int argc, const char *argv[])
                                 {
                                     // Save the frame into a file
                                     string imageName = detectorType + "_" + descriptorType + "_img" + to_string(imgIndex) + ".png";
-                                    imwrite("../images/" + "imageName, visImg);
+                                    imwrite("../images/" + imageName, visImg);
                                 }
                             }
                             bVis = false;
