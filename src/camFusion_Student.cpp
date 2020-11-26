@@ -149,16 +149,16 @@ void clusterKptMatchesWithROI(BoundingBox &boundingBox, std::vector<cv::KeyPoint
         }
     }
 
+    cout << "Find " << kptMatches_roi.size()  << " matches" << endl;
+
     for (auto it = kptMatches_roi.begin(); it != kptMatches_roi.end(); ++it)
     {
          dist_mean += it->distance;
     }
 
-    cout << "Find " << kptMatches_roi.size()  << " matches" << endl;
-
     if (kptMatches_roi.size() > 0)
     {
-         dist_mean = dist_mean/kptMatches_roi.size();
+         dist_mean = dist_mean / kptMatches_roi.size();
     }
     else
     {
@@ -242,7 +242,6 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
     double minXPrev = 1e9, minXCurr = 1e9;
     for (auto it = lidarPointsPrev.begin(); it != lidarPointsPrev.end(); ++it)
     {
-
         if (abs(it->y) <= laneWidth / 2.0)
         { // 3D point within ego lane?
             minXPrev = minXPrev > it->x ? it->x : minXPrev;
@@ -251,7 +250,6 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
 
     for (auto it = lidarPointsCurr.begin(); it != lidarPointsCurr.end(); ++it)
     {
-
         if (abs(it->y) <= laneWidth / 2.0)
         { // 3D point within ego lane?
             minXCurr = minXCurr > it->x ? it->x : minXCurr;
